@@ -7,53 +7,43 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('admin.resources.update', ['resource' => $resource['slug']]) }}" method="POST">
+                    <form action="{{ route('admin.albums.update', ['album' => $album->id]) }}" method="POST">
                         @csrf
                         @method('PUT')
 
                         <div class="mb-3">
                             <label for="name" class="form-label fw-bold">
-                                Nome
+                                Title
                                 <span class="text-danger">
                                     *
                                 </span>
                             </label>
-                            <input type="text" class="form-control" name="name" id="name" maxlength="255" value="{{ old('name', $resource['name']) }}" placeholder="Inserisci il nome della risorsa..." required>
+                            <input type="text" class="form-control" name="title" id="name" maxlength="255" value="{{ old('title', $album['title']) }}" placeholder="Inserisci il titolo dell' album..." required>
                         </div>
 
                         <div class="mb-3">
                             <label for="description" class="form-label fw-bold">
-                                Descrizione
+                                Release Date
                             </label>
-                            <textarea class="form-control" name="description" id="description" rows="3" maxlength="2048" placeholder="Inserisci la descrizione della risorsa...">{{ old('description', $resource['description']) }}</textarea>
+                            <textarea class="form-control" name="year" id="description" rows="3" maxlength="2048" placeholder="Inserisci l 'anno'...">{{ old('year', $album['year']) }}</textarea>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label fw-bold">
-                                Attivo?
-                                <span class="text-danger">
-                                    *
-                                </span>
+                            <label for="description" class="form-label fw-bold">
+                                Description
                             </label>
-                            <div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="active" id="active-yes" value="1"
-                                    @if ($resource['active'])
-                                        checked
-                                    @endif
-                                    >
-                                    <label class="form-check-label" for="active-yes">Si</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="active" id="active-no" value="0"
-                                    @if (!$resource['active'])
-                                        checked
-                                    @endif
-                                    >
-                                    <label class="form-check-label" for="active-no">No</label>
-                                </div>
-                            </div>
+                            <textarea class="form-control" name="description" id="description" rows="3" maxlength="2048" placeholder="Inserisci la descrizione...">{{ old('description', $album['description']) }}</textarea>
                         </div>
+
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label fw-bold">
+                                Country
+                            </label>
+                            <textarea class="form-control" name="country" id="description" rows="3" maxlength="2048" placeholder="Inserisci la città...">{{ old('country', $album['country']) }}</textarea>
+                        </div>
+
+
 
                         <div class="mb-3">
                             I campi contrassegnati con

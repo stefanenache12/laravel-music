@@ -32,7 +32,7 @@ class AlbumController extends Controller
      */
     public function store(StoreAlbumRequest $request)
     {
-        $formData = $request->all();
+        $formData = $request->validated();
 
         $album = new Album();
 
@@ -51,7 +51,7 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        $album = Album::findOrFail($album);
+        
 
         return view('admin.albums.show',compact('album'));
     }
@@ -61,7 +61,6 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        $album = Album::findOrFail($album);
 
         return view('admin.albums.edit',compact('album'));
     }
