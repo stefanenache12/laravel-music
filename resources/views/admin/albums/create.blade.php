@@ -7,7 +7,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('admin.albums.store') }}" method="POST">
+                    <form action="{{ route('admin.resources.store') }}" method="POST">
                         @csrf
 
                         <div class="mb-3">
