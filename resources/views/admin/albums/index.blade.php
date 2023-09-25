@@ -7,7 +7,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{ route('admin.resources.create') }}" class="btn btn-success w-100 mb-3 fw-bold">
+                    <a href="{{ route('admin.albums.create') }}" class="btn btn-success w-100 mb-3 fw-bold">
                         + Aggiungi Album
                     </a>
 
