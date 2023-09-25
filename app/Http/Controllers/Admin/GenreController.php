@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Genre;
+
 use App\Http\Requests\StoreGenreRequest;
 use App\Http\Requests\UpdateGenreRequest;
 use App\Http\Controllers\Controller;
+
+// Models
+use App\Models\Genre;
 
 class GenreController extends Controller
 {
@@ -14,7 +17,9 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
+        $genres = Genre::all();
+
+        return view('admin.genres.index',compact('genres'));
     }
 
     /**
@@ -22,7 +27,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.genres.create');
     }
 
     /**
@@ -30,7 +35,15 @@ class GenreController extends Controller
      */
     public function store(StoreGenreRequest $request)
     {
-        //
+        $formData = $request->all();
+
+        $genre = new Genre();
+
+        $genre -> name = $formData['name'];
+        $genre -> slug = $genre->name;
+        $genre->save();
+
+        return redirect()->route('admin.genres.index');
     }
 
     /**
@@ -38,7 +51,9 @@ class GenreController extends Controller
      */
     public function show(Genre $genre)
     {
-        //
+        $genre = Genre::findOrFail($genre);
+
+        return view('admin.genres.show',compact('genre'));
     }
 
     /**
@@ -46,7 +61,9 @@ class GenreController extends Controller
      */
     public function edit(Genre $genre)
     {
-        //
+        $genre = Genre::findOrFail($genre);
+
+        return view('admin.genres.edit',compact('genre'));
     }
 
     /**
@@ -54,7 +71,12 @@ class GenreController extends Controller
      */
     public function update(UpdateGenreRequest $request, Genre $genre)
     {
-        //
+        $formData = $request->all();
+        $genre -> name = $formData['name'];
+        $genre -> slug = $genre->name;
+        $genre->save();
+
+        return redirect()->route('admin.genres.index');
     }
 
     /**
@@ -62,6 +84,9 @@ class GenreController extends Controller
      */
     public function destroy(Genre $genre)
     {
-        //
+        $genre = Genre::findOrFail($genre);
+        $genre -> delete();
+
+        return redirect()-> route('admin.genres.index');
     }
 }
