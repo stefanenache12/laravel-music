@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', 'Modifica '.$resource['name'])
+@section('page-title', 'Modifica '.$album['title'])
 
 @section('main-content')
     <div class="row">

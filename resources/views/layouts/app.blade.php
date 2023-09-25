@@ -37,17 +37,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.resources.index') }}"
-                                    @class([
-                                        $linkClasses,
-                                        'bg-white text-primary' => request()->routeIs('admin.resources.index'),
-                                        'text-white' => !request()->routeIs('admin.resources.index')
-                                    ])>
-                                    Risorse
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"
+                                <a href="{{ route('admin.albums.index') }}"
                                     @class([
                                         $linkClasses,
                                         'bg-white text-primary' => request()->routeIs('admin.albums.index'),

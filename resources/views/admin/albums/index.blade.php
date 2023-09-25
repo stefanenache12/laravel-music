@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', 'Risorse')
+@section('page-title', 'Albums')
 
 @section('main-content')
     <div class="row">
@@ -8,50 +8,49 @@
             <div class="card">
                 <div class="card-body">
                     <a href="{{ route('admin.resources.create') }}" class="btn btn-success w-100 mb-3 fw-bold">
-                        + Aggiungi risorsa
+                        + Aggiungi Album
                     </a>
 
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nome</th>
-                                <th scope="col">Slug</th>
-                                <th scope="col">Attivo?</th>
-                                <th scope="col">Azioni</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Year</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Country</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($resources as $resource)
+                            @foreach ($albums as $album)
                                 <tr>
                                     <th scope="row">
-                                        {{ $resource['id'] }}
+                                        {{ $album['id'] }}
                                     </th>
                                     <td>
-                                        {{ $resource['name'] }}
+                                        {{ $album['title'] }}
                                     </td>
                                     <td>
-                                        {{ $resource['slug'] }}
+                                        {{ $album['year'] }}
                                     </td>
                                     <td>
-                                        @if ($resource['active'])
-                                            <span class="badge rounded-pill text-bg-success">Si</span>
-                                        @else
-                                            <span class="badge rounded-pill text-bg-danger">No</span>
-                                        @endif
+                                        {{ $album['description'] }}
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.resources.show', ['resource' => $resource['slug']]) }}"
+                                        {{ $album['country'] }}
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('admin.albums.show', ['album' => $album['id']]) }}"
                                             class="btn btn-primary me-2">
                                             Vedi
                                         </a>
 
-                                        <a href="{{ route('admin.resources.edit', ['resource' => $resource['slug']]) }}"
+                                        <a href="{{ route('admin.albums.edit', ['album' => $album['id']]) }}"
                                             class="btn btn-warning me-2">
                                             Modifica
                                         </a>
 
-                                        <form method="POST" class="d-inline-block" action="{{ route('admin.resources.destroy', ['resource' => $resource['slug']]) }}" onsubmit="return confirm('Sei sicuro di voler eliminare questa risorsa?');">
+                                        <form method="POST" class="d-inline-block" action="{{ route('admin.albums.destroy', ['album' => $album['id']]) }}" onsubmit="return confirm('Sei sicuro di voler eliminare questa risorsa?');">
                                             @csrf
                                             @method('DELETE')
 
