@@ -18,6 +18,7 @@
                                 <th scope="col">Title</th>
                                 <th scope="col">Year</th>
                                 <th scope="col">Description</th>
+                                <th scope="col">Genres</th>
                                 <th scope="col">Country</th>
                             </tr>
                         </thead>
@@ -33,6 +34,17 @@
                                     <td>
                                         {{ $album['year'] }}
                                     </td>
+
+                                    @if($album->genre)
+                                        <td>
+                                            {{ $album->genre->name }}
+                                        </td>
+                                    @else
+                                        <td>
+                                            -
+                                        </td>
+                                    @endif
+                                    
                                     <td>
                                         {{ $album['description'] }}
                                     </td>

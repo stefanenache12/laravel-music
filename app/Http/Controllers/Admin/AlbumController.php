@@ -7,6 +7,8 @@ use App\Http\Requests\StoreAlbumRequest;
 use App\Http\Requests\UpdateAlbumRequest;
 use App\Http\Controllers\Controller;
 
+use App\Models\Genre;
+
 class AlbumController extends Controller
 {
     /**
@@ -24,7 +26,8 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        return view ('admin.albums.create');
+        $genres = Genre::all();
+        return view ('admin.albums.create',compact('genres'));
     }
 
     /**
@@ -32,7 +35,10 @@ class AlbumController extends Controller
      */
     public function store(StoreAlbumRequest $request)
     {
-        $formData = $request->validated();
+
+        $formData = $request->all();
+
+       
 
         $album = new Album();
 
@@ -40,6 +46,7 @@ class AlbumController extends Controller
         $album -> year = $formData['year'];
         $album -> description = $formData['description'];
         $album -> country = $formData['country'];
+        $album -> genre_id = $formData['genre_id'];
 
         $album->save();
 
@@ -61,8 +68,8 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-
-        return view('admin.albums.edit',compact('album'));
+        $genres = Genre::all();
+        return view('admin.albums.edit',compact('album','genres'));
     }
 
     /**
@@ -76,6 +83,7 @@ class AlbumController extends Controller
         $album -> year = $formData['year'];
         $album -> description = $formData['description'];
         $album -> country = $formData['country'];
+        $album -> genre_id = $formData['genre_id'];
 
         $album->save();
 

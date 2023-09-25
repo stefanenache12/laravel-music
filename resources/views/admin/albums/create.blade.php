@@ -41,6 +41,24 @@
                             <textarea class="form-control" name="country" id="description" rows="3" maxlength="2048" placeholder="Inserisci luogo di produzione">{{ old('country') }}</textarea>
                         </div>
 
+                        <div class="mb-3">
+                            <label for="genre_id" class="form-label">Genre</label>
+                            <select class="form-select" id="genre_id" name="genre_id">
+                                <option>Select a genre...</option>
+                                @foreach ($genres as $genre)
+                                    <option
+                                        value="{{ $genre->id }}" name='genre_id'
+        
+                                        @if (old('genre_id') == $genre->id)
+                                            selected
+                                        @endif
+                                        >
+                                        {{ $genre->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div>
                             <button type="submit" class="btn btn-success w-100 fw-bold">
                                 + Aggiungi

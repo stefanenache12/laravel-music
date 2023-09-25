@@ -13,6 +13,12 @@ class Album extends Model
         'title',
         'year',
         'description',
-        'country'
+        'country',
+        'genre_id'
     ];
+
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class);
+    }
 }

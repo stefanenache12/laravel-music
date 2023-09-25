@@ -11,10 +11,10 @@
                         Album pubblicati
                     </h2>
                     <h3 class="text-center fs-2">
-                        54
+                        {{$countAlbum}}
                     </h3>
                     <div class="text-center mt-4">
-                        <a href="#" class="btn btn-primary">
+                        <a href="{{ route('admin.albums.index') }}" class="btn btn-primary">
                             Vedi tutti
                         </a>
                     </div>
@@ -29,10 +29,10 @@
                         Generi musicali
                     </h2>
                     <h3 class="text-center fs-2">
-                        13
+                        {{ $countGenre }}
                     </h3>
                     <div class="text-center mt-4">
-                        <a href="#" class="btn btn-primary">
+                        <a href="{{ route('admin.genres.index') }}" class="btn btn-primary">
                             Vedi tutti
                         </a>
                     </div>
