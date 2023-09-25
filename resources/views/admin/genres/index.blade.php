@@ -14,7 +14,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">ID</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Slug</th>
                             </tr>
@@ -23,7 +23,7 @@
                             @foreach ($genres as $genre)
                                 <tr>
                                     <th scope="row">
-                                        {{ $genre->name }}
+                                        {{ $genre->id }}
                                     </th>
                                     <td>
                                         {{ $genre->slug }}
