@@ -51,7 +51,7 @@ class GenreController extends Controller
      */
     public function show(Genre $genre)
     {
-        $genre = Genre::findOrFail($genre);
+        
 
         return view('admin.genres.show',compact('genre'));
     }
@@ -61,8 +61,6 @@ class GenreController extends Controller
      */
     public function edit(Genre $genre)
     {
-        $genre = Genre::findOrFail($genre);
-
         return view('admin.genres.edit',compact('genre'));
     }
 
@@ -84,7 +82,6 @@ class GenreController extends Controller
      */
     public function destroy(Genre $genre)
     {
-        $genre = Genre::findOrFail($genre);
         $genre -> delete();
 
         return redirect()-> route('admin.genres.index');

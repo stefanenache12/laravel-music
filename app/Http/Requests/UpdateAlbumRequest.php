@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+//helpers
+use illuminate\support\Facades\Auth;
 class UpdateAlbumRequest extends FormRequest
 {
     /**
@@ -11,7 +13,7 @@ class UpdateAlbumRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return auth::check();
     }
 
     /**

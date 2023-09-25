@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', $resource['name'])
+@section('page-title', $genre['name'])
 
 @section('main-content')
     <div class="row">
@@ -13,35 +13,28 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Slug</th>
-                                <th scope="col">Attivo?</th>
                                 <th scope="col">Azioni</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    {{ $resource['id'] }}
+                                    {{ $genre['id'] }}
                                 </th>
                                 <td>
-                                    {{ $resource['name'] }}
+                                    {{ $genre['name'] }}
                                 </td>
                                 <td>
-                                    {{ $resource['slug'] }}
+                                    {{ $genre['slug'] }}
                                 </td>
+                                
                                 <td>
-                                    @if ($resource['active'])
-                                        <span class="badge rounded-pill text-bg-success">Si</span>
-                                    @else
-                                        <span class="badge rounded-pill text-bg-danger">No</span>
-                                    @endif
-                                </td>
-                                <td>
-                                    <a href="{{ route('admin.resources.edit', ['resource' => $resource['slug']]) }}"
+                                    <a href="{{ route('admin.genres.edit', ['genre' => $genre->id]) }}"
                                         class="btn btn-warning me-2">
                                         Modifica
                                     </a>
 
-                                    <form method="POST" class="d-inline-block" action="{{ route('admin.resources.destroy', ['resource' => $resource['slug']]) }}" onsubmit="return confirm('Sei sicuro di voler eliminare questa risorsa?');">
+                                    <form method="POST" class="d-inline-block" action="{{ route('admin.genres.destroy', ['genre' => $genre->id]) }}" onsubmit="return confirm('Sei sicuro di voler eliminare questa risorsa?');">
                                         @csrf
                                         @method('DELETE')
 

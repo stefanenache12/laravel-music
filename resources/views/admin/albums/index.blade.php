@@ -50,7 +50,7 @@
                                             Modifica
                                         </a>
 
-                                        <form method="POST" class="d-inline-block" action="{{ route('admin.albums.destroy', ['album' => $album['id']]) }}" onsubmit="return confirm('Sei sicuro di voler eliminare questa risorsa?');">
+                                        <form method="POST" class="d-inline-block" action="{{ route('admin.albums.destroy', ['album' => $album->id]) }}" onsubmit="return confirm('Sei sicuro di voler eliminare questa risorsa?');">
                                             @csrf
                                             @method('DELETE')
 

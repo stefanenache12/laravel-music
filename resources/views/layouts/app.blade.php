@@ -47,7 +47,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href="{{ route('admin.genres.index') }}"
                                     @class([
                                         $linkClasses,
                                         'bg-white text-primary' => request()->routeIs('admin.genres.index'),

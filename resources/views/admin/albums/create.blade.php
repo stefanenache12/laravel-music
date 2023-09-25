@@ -11,13 +11,13 @@
                         @csrf
 
                         <div class="mb-3">
-                            <label for="name" class="form-label fw-bold">
+                            <label for="title" class="form-label fw-bold">
                                 Title
                                 <span class="text-danger">
                                     *
                                 </span>
                             </label>
-                            <input type="text" class="form-control" name="name" id="name" maxlength="255" value="{{ old('name') }}" placeholder="Inserisci il nome della risorsa..." required>
+                            <input type="text" class="form-control" name="title" id="title" maxlength="255" value="{{ old('title') }}" placeholder="Inserisci il nome della risorsa..." required>
                         </div>
 
                         <div class="mb-3">
