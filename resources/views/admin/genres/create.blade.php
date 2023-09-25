@@ -7,12 +7,12 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('admin.resources.store') }}" method="POST">
+                    <form action="{{ route('admin.genres.store') }}" method="POST">
                         @csrf
 
                         <div class="mb-3">
                             <label for="name" class="form-label fw-bold">
-                                Nome
+                                Nome Album
                                 <span class="text-danger">
                                     *
                                 </span>
@@ -24,12 +24,12 @@
                             <label for="description" class="form-label fw-bold">
                                 Descrizione
                             </label>
-                            <textarea class="form-control" name="description" id="description" rows="3" maxlength="2048" placeholder="Inserisci la descrizione della risorsa...">{{ old('description') }}</textarea>
+                            <textarea class="form-control" name="description" id="description" rows="3" maxlength="2048" placeholder="Inserisci la descrizione del genere...">{{ old('description') }}</textarea>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label fw-bold">
-                                Attivo?
+                                Da Pubblicare?
                                 <span class="text-danger">
                                     *
                                 </span>

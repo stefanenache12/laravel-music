@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', $resource['name'])
+@section('page-title')
 
 @section('main-content')
     <div class="row">
@@ -13,14 +13,12 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Slug</th>
-                                <th scope="col">Attivo?</th>
-                                <th scope="col">Azioni</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th scope="row">
-                                    {{ $resource['id'] }}
+                                    {{ $genre }}
                                 </th>
                                 <td>
                                     {{ $resource['name'] }}

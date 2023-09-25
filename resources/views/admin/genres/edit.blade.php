@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('page-title', 'Modifica '.$resource['name'])
+@section('page-title', 'Modifica '.$genre->name)
 
 @section('main-content')
     <div class="row">
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('admin.resources.update', ['resource' => $resource['slug']]) }}" method="POST">
+                    <form action="{{ route('admin.resources.update', $genre->slug) }}" method="POST">
                         @csrf
                         @method('PUT')
 
@@ -18,7 +18,7 @@
                                     *
                                 </span>
                             </label>
-                            <input type="text" class="form-control" name="name" id="name" maxlength="255" value="{{ old('name', $resource['name']) }}" placeholder="Inserisci il nome della risorsa..." required>
+                            <input type="text" class="form-control" name="name" id="name" maxlength="255" value="{{ old('name', $genre->name) }}" placeholder="Inserisci il nome della risorsa..." required>
                         </div>
 
                         <div class="mb-3">
@@ -30,7 +30,7 @@
 
                         <div class="mb-3">
                             <label class="form-label fw-bold">
-                                Attivo?
+                                Da Pubblicare?
                                 <span class="text-danger">
                                     *
                                 </span>
