@@ -14,7 +14,9 @@ class AlbumController extends Controller
      */
     public function index()
     {
-      //
+        $albums = Album::all();
+
+        return view('admin.albums.index',compact('albums'));
     }
 
     /**
@@ -22,7 +24,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.albums.create');
     }
 
     /**
@@ -30,7 +32,18 @@ class AlbumController extends Controller
      */
     public function store(StoreAlbumRequest $request)
     {
-        //
+        $formData = $request->all();
+
+        $album = new Album();
+
+        $album -> title = $formData['title'];
+        $album -> year = $formData['year'];
+        $album -> description = $formData['description'];
+        $album -> country = $formData['country'];
+
+        $album->save();
+
+        return redirect()->route('admin.albums.index');
     }
 
     /**
@@ -38,7 +51,9 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        //
+        $album = Album::findOrFail($album);
+
+        return view('admin.albums.show',compact('album'));
     }
 
     /**
@@ -46,7 +61,9 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        //
+        $album = Album::findOrFail($album);
+
+        return view('admin.albums.edit',compact('album'));
     }
 
     /**
@@ -54,7 +71,16 @@ class AlbumController extends Controller
      */
     public function update(UpdateAlbumRequest $request, Album $album)
     {
-        //
+        $formData = $request->all();
+
+        $album -> title = $formData['title'];
+        $album -> year = $formData['year'];
+        $album -> description = $formData['description'];
+        $album -> country = $formData['country'];
+
+        $album->save();
+
+        return redirect()->route('admin.albums.index');
     }
 
     /**
@@ -62,6 +88,9 @@ class AlbumController extends Controller
      */
     public function destroy(Album $album)
     {
-        //
+        $album = Album::findOrFail($album);
+        $album -> delete();
+
+        return redirect()-> route('admin.albums.index');
     }
 }
