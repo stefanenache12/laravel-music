@@ -7,7 +7,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{ route('admin.resources.create') }}" class="btn btn-success w-100 mb-3 fw-bold">
+                    <a href="{{ route('admin.albums.create') }}" class="btn btn-success w-100 mb-3 fw-bold">
                         + Aggiungi Album
                     </a>
 
@@ -40,12 +40,12 @@
                                         {{ $album['country'] }}
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.albums.show', ['album' => $album['id']]) }}"
+                                        <a href="{{ route('admin.albums.show', ['album' => $album->id]) }}"
                                             class="btn btn-primary me-2">
                                             Vedi
                                         </a>
 
-                                        <a href="{{ route('admin.albums.edit', ['album' => $album['id']]) }}"
+                                        <a href="{{ route('admin.albums.edit', ['album' => $album->id]) }}"
                                             class="btn btn-warning me-2">
                                             Modifica
                                         </a>

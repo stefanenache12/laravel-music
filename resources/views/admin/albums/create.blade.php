@@ -7,12 +7,12 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('admin.resources.store') }}" method="POST">
+                    <form action="{{ route('admin.albums.store') }}" method="POST">
                         @csrf
 
                         <div class="mb-3">
                             <label for="name" class="form-label fw-bold">
-                                Nome
+                                Title
                                 <span class="text-danger">
                                     *
                                 </span>
@@ -22,44 +22,23 @@
 
                         <div class="mb-3">
                             <label for="description" class="form-label fw-bold">
-                                Descrizione
+                                Year
+                            </label>
+                            <textarea class="form-control" name="year" id="description" rows="3" maxlength="2048" placeholder="Inserisci l' anno">{{ old('year') }}</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label fw-bold">
+                                Description
                             </label>
                             <textarea class="form-control" name="description" id="description" rows="3" maxlength="2048" placeholder="Inserisci la descrizione della risorsa...">{{ old('description') }}</textarea>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label fw-bold">
-                                Attivo?
-                                <span class="text-danger">
-                                    *
-                                </span>
+                            <label for="description" class="form-label fw-bold">
+                                country
                             </label>
-                            <div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="active" id="active-yes" value="1"
-                                    @if (!old('active') || old('active') == 1)
-                                        checked
-                                    @endif
-                                    >
-                                    <label class="form-check-label" for="active-yes">Si</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="active" id="active-no" value="0"
-                                    @if (old('active') === '0')
-                                        checked
-                                    @endif
-                                    >
-                                    <label class="form-check-label" for="active-no">No</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            I campi contrassegnati con
-                            <span class="text-danger fw-bold">
-                                *
-                            </span>
-                            sono obbligatori
+                            <textarea class="form-control" name="country" id="description" rows="3" maxlength="2048" placeholder="Inserisci luogo di produzione">{{ old('country') }}</textarea>
                         </div>
 
                         <div>

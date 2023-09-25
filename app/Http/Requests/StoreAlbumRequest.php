@@ -4,6 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+//helpers
+use illuminate\support\Facades\Auth;
+
 class StoreAlbumRequest extends FormRequest
 {
     /**
@@ -11,7 +14,7 @@ class StoreAlbumRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return auth::check();
     }
 
     /**
@@ -22,7 +25,10 @@ class StoreAlbumRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|max:70',
+            'year' => 'required',
+            'description' => 'required',
+            'country' => 'nullable'
         ];
     }
 }
