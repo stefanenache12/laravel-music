@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\MainController as AdminMainController;
 use App\Http\Controllers\Admin\ResourceController as AdminResourceController;
+use App\Http\Controllers\Admin\AlbumController;
+use App\Http\Controllers\Admin\GenreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +29,9 @@ Route::prefix('admin')
 
     Route::get('/dashboard', [AdminMainController::class, 'dashboard'])->name('dashboard');
 
-    Route::resource('resources', AdminResourceController::class);
+    Route::resource('genres', GenreController::class);
+
+    Route::resource('albums', AlbumController::class);
 
 });
 
